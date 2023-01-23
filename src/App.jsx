@@ -1,16 +1,22 @@
 import { Types, Level } from "../constant";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import useQuestionStore from "./store/zustand";
 
 function App() {
   const [type, setType] = useState(Types[0].id);
   const [level, setLevel] = useState(Level[0]);
+  const { question } = useQuestionStore();
   const navigate = useNavigate();
 
   const handleBegin = () => {
     const query = `amount=5&category=${type}&difficulty=${level}&type=multiple`;
-    navigate(`/question?${query}`);
+    navigate(`/question?${query}`, {
+      replace: false,
+    });
   };
+
+  if (question.length) return <Navigate to={"/question"} />;
 
   return (
     <section className="flex flex-col text-sm md:mx-auto md:max-w-xl ">

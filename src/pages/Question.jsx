@@ -18,7 +18,7 @@ function Question() {
   return (
     <section className="max-w-xl mx-auto ">
       <h1 className="text-base md:text-lg font-semibold mb-5 text-blue-900">
-        Are you sure to start ?
+        Quizzz Info
       </h1>
 
       <div className="flex flex-col text-gray-900 space-y-3 text-xs md:text-sm">

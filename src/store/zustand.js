@@ -31,6 +31,9 @@ const useQuestionStore = create(
         set({
           question: [],
           error: null,
+          totalTime: 0,
+          trueAnswer: 0,
+          falseAnswer: 0,
           auth: {},
         }),
       resetQuestion: () =>

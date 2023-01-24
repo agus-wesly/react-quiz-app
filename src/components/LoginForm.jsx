@@ -20,7 +20,7 @@ function LoginForm({ loading }) {
           Email
         </label>
         <input
-          type="text"
+          type="email"
           autoComplete="off"
           name="email"
           placeholder="Email"

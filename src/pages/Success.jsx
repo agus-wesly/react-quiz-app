@@ -2,10 +2,16 @@ import useQuestionStore from "../store/zustand";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import AnimateProvider from "../components/AnimateProvider";
+import Question from "../components/Question";
 
 function Success() {
-  const { trueAnswer, falseAnswer, resetQuestion, setTimeStamp } =
-    useQuestionStore();
+  const {
+    trueAnswer,
+    falseAnswer,
+    resetQuestion,
+    setTimeStamp,
+    question: allQuestion,
+  } = useQuestionStore();
   const navigate = useNavigate();
   const score = (trueAnswer * 100) / 5;
   const indxColor =
@@ -20,7 +26,7 @@ function Success() {
     navigate("/");
   };
   return (
-    <AnimateProvider className="flex flex-col space-y-10 md:max-w-[400px] md:mx-auto">
+    <AnimateProvider className="flex flex-col space-y-10 md:max-w-xl md:mx-auto">
       <h3 className="text-lg text-center text-neutral-900 font-bold md:text-xl">
         Your Final score is
       </h3>
@@ -53,6 +59,20 @@ function Success() {
       >
         Back to dashboard
       </button>
+
+      {/* Summary */}
+      <h3 className="text-center text-neutral-600 font-semibold md:text-lg pt-[100px]">
+        Answer
+      </h3>
+      {allQuestion.map((question, i) => (
+        <Question
+          key={i}
+          singleQuestion={question}
+          id={i + 1}
+          summary={true}
+          trueAnswer={question.correct_answer}
+        />
+      ))}
     </AnimateProvider>
   );
 }

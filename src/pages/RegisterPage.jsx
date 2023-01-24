@@ -30,8 +30,12 @@ export async function action({ request }) {
   if (password !== confirmPwd)
     return { msg: "Password And Confirm Password must match !" };
 
-  await handleRegister(email, password);
-  return redirect("/login");
+  try {
+    await handleRegister(email, password);
+    return redirect("/login");
+  } catch (error) {
+    return { msg: error };
+  }
 }
 
 export default RegisterPage;

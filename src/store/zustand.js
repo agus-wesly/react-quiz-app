@@ -5,6 +5,7 @@ const useQuestionStore = create(
   persist(
     (set) => ({
       question: [],
+      userAnswer: [],
       error: null,
       totalTime: 0,
       trueAnswer: 0,
@@ -23,6 +24,11 @@ const useQuestionStore = create(
       },
 
       authUser: (auth) => set((state) => ({ ...state, auth })),
+      addAnswer: ({ question, answer }) =>
+        set((state) => ({
+          ...state,
+          userAnswer: [...state.userAnswer, { question, answer }],
+        })),
       trueAction: () =>
         set((state) => ({ ...state, trueAnswer: state.trueAnswer + 1 })),
       falseAction: () =>
@@ -30,6 +36,7 @@ const useQuestionStore = create(
       logoutUser: () =>
         set({
           question: [],
+          userAnswer: [],
           error: null,
           totalTime: 0,
           trueAnswer: 0,

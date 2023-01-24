@@ -35,7 +35,7 @@ function RegisterForm({ isSubmitting: loading }) {
           Email
         </label>
         <input
-          type="text"
+          type="email"
           required
           autoComplete="off"
           name="email"

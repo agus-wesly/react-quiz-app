@@ -76,7 +76,7 @@ function RegisterForm({ isSubmitting: loading }) {
             !loading
               ? "bg-blue-700 hover:bg-neutral-50 hover:text-blue-500"
               : "bg-blue-500/70 cursor-not-allowed"
-          }  p-1 md:py-2 justify-center font-semibold md:font-bold text-base md:text-lg text-center mt-5 mb-3 transition text-white`}
+          }  p-1 justify-center font-semibold md:font-bold text-base md:text-lg text-center mt-5 mb-3 transition text-white`}
           type="submit"
         >
           {loading ? (

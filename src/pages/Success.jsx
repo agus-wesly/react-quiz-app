@@ -1,6 +1,7 @@
 import useQuestionStore from "../store/zustand";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import AnimateProvider from "../components/AnimateProvider";
 
 function Success() {
   const { trueAnswer, falseAnswer, resetQuestion, setTimeStamp } =
@@ -19,7 +20,7 @@ function Success() {
     navigate("/");
   };
   return (
-    <section className="flex flex-col space-y-10 md:max-w-[400px] md:mx-auto">
+    <AnimateProvider className="flex flex-col space-y-10 md:max-w-[400px] md:mx-auto">
       <h3 className="text-lg text-center text-neutral-900 font-bold md:text-xl">
         Your Final score is
       </h3>
@@ -52,7 +53,7 @@ function Success() {
       >
         Back to dashboard
       </button>
-    </section>
+    </AnimateProvider>
   );
 }
 

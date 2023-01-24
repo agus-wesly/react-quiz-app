@@ -6,7 +6,10 @@ function Navbar() {
 
   return (
     <nav className="w-full bg-transparent text-neutral-900 px-5 md:px-10 flex items-center justify-between py-5 text-sm border-b-slate-200 border">
-      <h1 className="text-2xl font-bold tracking-tight">Quizzz </h1>
+      <h1 className="text-2xl font-bold tracking-tight flex items-center">
+        Quizzz
+        <div className="w-2 h-2 bg-red-500 mt-2 ml-1 rounded-full" />
+      </h1>
       <div className="space-x-5">
         {!auth?.email && (
           <Link

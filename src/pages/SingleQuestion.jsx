@@ -2,6 +2,7 @@ import useQuestionStore from "../store/zustand";
 import { useParams, useNavigate } from "react-router-dom";
 import Option from "../components/Option";
 import TimeStamp from "../components/TimeStamp";
+import AnimateProvider from "../components/AnimateProvider";
 import he from "he";
 
 function SingleQuestion() {
@@ -33,7 +34,7 @@ function SingleQuestion() {
   };
 
   return (
-    <section className="max-w-xl mx-auto">
+    <AnimateProvider className="max-w-xl mx-auto">
       <div className="flex max-w-fit flex-col ml-auto space-x-3 mb-10">
         <TimeStamp />
       </div>
@@ -47,7 +48,7 @@ function SingleQuestion() {
       {options.map((opt, i) => (
         <Option key={i} value={opt} idx={i} handleClick={handleClick} />
       ))}
-    </section>
+    </AnimateProvider>
   );
 }
 

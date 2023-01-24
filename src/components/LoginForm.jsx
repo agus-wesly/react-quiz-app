@@ -6,7 +6,7 @@ function LoginForm({ loading }) {
   return (
     <>
       <Form
-        className="flex flex-col max-w-xl mx-auto"
+        className="flex flex-col max-w-[420px] mx-auto"
         action="/login"
         method="post"
       >
@@ -48,7 +48,7 @@ function LoginForm({ loading }) {
             !loading
               ? "bg-blue-700 hover:bg-neutral-50 hover:text-blue-500"
               : "bg-blue-500/70 cursor-not-allowed"
-          }  p-1 md:py-3 justify-center font-semibold md:font-bold text-base md:text-lg text-center  mb-3 transition text-white`}
+          }  p-1 justify-center font-semibold md:font-bold text-base md:text-lg text-center  mb-3 transition text-white`}
           type="submit"
         >
           {loading ? (

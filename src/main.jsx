@@ -21,7 +21,6 @@ import {
   SingleQuestion,
   RequireAuth,
   RequireLogout,
-  Testing,
   Success,
 } from "./pages";
 
@@ -44,7 +43,6 @@ const router = createBrowserRouter(
         <Route path="question" element={<Question />} />
         <Route path="question/:id" element={<SingleQuestion />} />
         <Route path="finish" element={<Success />} />
-        <Route path="tes" element={<Testing />} />
       </Route>
     </Route>
   )

@@ -3,6 +3,7 @@ import { handleLogin } from "../../api/firebase";
 import { useNavigate, useActionData, useNavigation } from "react-router-dom";
 import useQuestionStore from "../store/zustand";
 import { useEffect } from "react";
+import AnimateProvider from "../components/AnimateProvider";
 
 function LoginPage() {
   const data = useActionData();
@@ -18,7 +19,7 @@ function LoginPage() {
   }, [data]);
 
   return (
-    <section>
+    <AnimateProvider>
       {data?.type === "ERROR" && (
         <p className="text-rose-700 text-xs font-bold mb-3">
           {" "}
@@ -26,7 +27,7 @@ function LoginPage() {
         </p>
       )}
       <LoginForm loading={navigation.state === "submitting"} />
-    </section>
+    </AnimateProvider>
   );
 }
 

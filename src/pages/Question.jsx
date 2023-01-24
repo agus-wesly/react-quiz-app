@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import useQuestionStore from "../store/zustand";
+import AnimateProvider from "../components/AnimateProvider";
 
 function Question() {
   const { fetchQuestion, question: questionData } = useQuestionStore();
@@ -16,7 +17,7 @@ function Question() {
   if (!questionData.length) return <p>Loading...</p>;
 
   return (
-    <section className="max-w-xl mx-auto ">
+    <AnimateProvider className="max-w-xl mx-auto ">
       <h1 className="text-base md:text-lg font-semibold mb-5 text-blue-900">
         Quizzz Info
       </h1>
@@ -52,7 +53,7 @@ function Question() {
       >
         Start
       </button>
-    </section>
+    </AnimateProvider>
   );
 
   // return <>{loading ? <p>Loading...</p> : <Navigate to={"/question/1"} />}</>;

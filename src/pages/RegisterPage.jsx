@@ -1,13 +1,14 @@
 import RegisterForm from "../components/RegisterForm";
 import { handleRegister } from "../../api/firebase";
 import { redirect, useActionData, useNavigation } from "react-router-dom";
+import AnimateProvider from "../components/AnimateProvider";
 
 function RegisterPage() {
   const data = useActionData();
   const navigation = useNavigation();
 
   return (
-    <section>
+    <AnimateProvider>
       {data && (
         <p className="text-rose-700 text-xs font-bold mb-3">
           {" "}
@@ -16,7 +17,7 @@ function RegisterPage() {
       )}
 
       <RegisterForm isSubmitting={navigation.state === "submitting"} />
-    </section>
+    </AnimateProvider>
   );
 }
 

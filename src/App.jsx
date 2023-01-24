@@ -2,6 +2,7 @@ import { Types, Level } from "../constant";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import useQuestionStore from "./store/zustand";
+import AnimateProvider from "./components/AnimateProvider";
 
 function App() {
   const [type, setType] = useState(Types[0].id);
@@ -19,7 +20,7 @@ function App() {
   if (question.length) return <Navigate to={"/question"} />;
 
   return (
-    <section className="flex flex-col text-sm md:mx-auto md:max-w-xl ">
+    <AnimateProvider className="flex flex-col text-sm md:mx-auto md:max-w-xl ">
       <h1 className="text-lg font-bold text-slate-800 mb-10">
         Welcome to <span>Quizzz</span>
       </h1>
@@ -60,7 +61,7 @@ function App() {
       >
         Begin Test
       </button>
-    </section>
+    </AnimateProvider>
   );
 }
 

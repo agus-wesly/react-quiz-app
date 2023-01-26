@@ -14,7 +14,6 @@ export async function handleRegister(email, password) {
       );
       resolve(userCredential.user);
     } catch (error) {
-      console.error(error);
       throw reject({ message: error.message });
     }
   });

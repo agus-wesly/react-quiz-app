@@ -11,6 +11,7 @@ const useQuestionStore = create(
       trueAnswer: 0,
       falseAnswer: 0,
       auth: {},
+      page: 1,
       fetchQuestion: async (query) => {
         try {
           const response = await fetch(`https://opentdb.com/api.php${query}`);
@@ -42,6 +43,7 @@ const useQuestionStore = create(
           trueAnswer: 0,
           falseAnswer: 0,
           auth: {},
+          page: 1,
         }),
       resetQuestion: () =>
         set((state) => ({
@@ -50,11 +52,17 @@ const useQuestionStore = create(
           trueAnswer: 0,
           falseAnswer: 0,
           error: null,
+          page: 1,
         })),
       setTimeStamp: (time) =>
         set((state) => ({
           ...state,
           totalTime: time,
+        })),
+      nextPage: () =>
+        set((state) => ({
+          ...state,
+          page: state.page + 1,
         })),
     }),
     {

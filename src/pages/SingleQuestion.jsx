@@ -19,10 +19,8 @@ function SingleQuestion() {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("Curent", page);
-
     if (Number(id) < page) {
-      navigate(`/question/${page}`)
+      navigate(`/question/${page}`);
     }
   }, [id]);
 
@@ -46,8 +44,6 @@ function SingleQuestion() {
       page === allQuestion.length ? "/finish" : `/question/${Number(id) + 1}`
     );
   };
-
-  console.log("CurrentPage", page);
 
   return (
     <AnimateProvider className="max-w-xl mx-auto">

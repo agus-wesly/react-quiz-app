@@ -48,15 +48,15 @@ function Question() {
 
       <button
         disabled={!questionData}
-        onClick={() => navigate("/question/1")}
+        onClick={() => {
+          navigate(`/question/1`);
+        }}
         className="flex w-full rounded-full bg-blue-700 cursor-pointer disabled:bg-blue-700/50 disabled:cursor-not-allowed p-1 justify-center font-semibold md:font-bold text-base md:text-lg text-center mt-10 text-white hover:bg-blue-600"
       >
         Start
       </button>
     </AnimateProvider>
   );
-
-  // return <>{loading ? <p>Loading...</p> : <Navigate to={"/question/1"} />}</>;
 }
 
 export default Question;

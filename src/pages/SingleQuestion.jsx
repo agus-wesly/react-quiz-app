@@ -1,28 +1,35 @@
 import useQuestionStore from "../store/zustand";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TimeStamp from "../components/TimeStamp";
+import { useEffect } from "react";
 import AnimateProvider from "../components/AnimateProvider";
 import Question from "../components/Question";
 
 function SingleQuestion() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const {
     question: allQuestion,
     trueAction,
     falseAction,
     addAnswer,
+    page,
+    nextPage,
   } = useQuestionStore();
 
-  const singleQuestion = allQuestion?.[id - 1];
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log("Curent", page);
+
+    if (Number(id) < page) {
+      navigate(`/question/${page}`)
+    }
+  }, [id]);
+
+  const singleQuestion = allQuestion?.[page - 1];
   const { correct_answer } = singleQuestion;
 
   const handleClick = (value) => {
-    const getUrl = () =>
-      Number(id) === allQuestion.length
-        ? "/finish"
-        : `/question/${Number(id) + 1}`;
-
     //Add answer
     addAnswer({ question: singleQuestion.question, answer: value });
 
@@ -33,8 +40,14 @@ function SingleQuestion() {
       falseAction();
     }
 
-    navigate(getUrl());
+    nextPage();
+
+    navigate(
+      page === allQuestion.length ? "/finish" : `/question/${Number(id) + 1}`
+    );
   };
+
+  console.log("CurrentPage", page);
 
   return (
     <AnimateProvider className="max-w-xl mx-auto">
@@ -43,7 +56,7 @@ function SingleQuestion() {
       </div>
 
       <Question
-        id={id}
+        id={page}
         handleClick={handleClick}
         singleQuestion={singleQuestion}
       />
